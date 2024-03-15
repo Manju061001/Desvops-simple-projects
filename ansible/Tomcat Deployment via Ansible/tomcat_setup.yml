@@ -1,0 +1,46 @@
+- hosts: tomcat
+  remote_user: ec2-user
+  become: yes
+  vars:
+    tomcat_port: 7700
+  tasks:
+    - name: update the yum repo
+      yum:
+        name: '*'
+        state: latest
+      
+    - name: install java
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+      
+    - name: download tomcat
+      get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz
+        dest: /home/ec2-user
+        mode: '777'
+    
+    - name: Unarchive a file that is already on the remote machine
+      unarchive:
+        src: /home/ec2-user/apache-tomcat-9.0.82.tar.gz
+        dest: /opt
+        remote_src: yes
+        mode: '777'
+      
+    - name: Changing port number
+      template:
+        src: /home/ec2-user/server.xml.j2
+        dest: /opt/apache-tomcat-9.0.82/conf/server.xml
+        mode: '777'
+
+    - name: stopping tomcat
+      shell: nohup /opt/apache-tomcat-9.0.82/bin/shutdown.sh &
+    
+    - name: starting tomcat
+      shell: nohup /opt/apache-tomcat-9.0.82/bin/startup.sh &
+
+    - name: deploy to tomcat
+      copy:
+        src: /home/ec2-user/sample.war
+        dest: /opt/apache-tomcat-9.0.82/webapps
+        mode: '777'
