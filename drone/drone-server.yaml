@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: drone-server
-        image: friggacloudlabs/drone
+        image: drone/drone
         ports:
         - containerPort: 80
         env:
