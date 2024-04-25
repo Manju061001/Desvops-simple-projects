@@ -21,7 +21,7 @@ spec:
         - name: DRONE_RPC_PROTO
           value: "http"  # Change to "https" if you're using HTTPS
         - name: DRONE_RPC_SECRET
-          value: "25988de9b5d45de8f7b37d0950341286"  # Replace with your Drone RPC secret
+          value: "enter yout rpc secret"  # Replace with your Drone RPC secret
         - name: DRONE_RUNNER_CAPACITY
           value: "2"  # Number of concurrent builds the runner can handle
         volumeMounts:
