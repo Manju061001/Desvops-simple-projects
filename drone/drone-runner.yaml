@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: drone-runner
-        image: friggacloudlabs/drone-runner-kube
+        image: drone/drone-runner-kube
         env:
         - name: DRONE_RPC_HOST
           value: "drone-server"  # Should match the service name of the Drone server
