@@ -23,8 +23,8 @@ spec:
         - name: DRONE_SERVER_PROTO
           value: "http"  # Change to "https" if you're using HTTPS
         - name: DRONE_GITHUB_CLIENT_ID
-          value: "e7a4ebcdc9057eb6d0e3"  # Replace with your GitHub client ID
+          value: "enter your github client id"  # Replace with your GitHub client ID
         - name: DRONE_GITHUB_CLIENT_SECRET
-          value: "b7fad9305ae96ab34ccd8b2e52682f0d6e9c820f"  # Replace with your GitHub client secret
+          value: "enter your client secret"  # Replace with your GitHub client secret
         - name: DRONE_RPC_SECRET
-          value: "25988de9b5d45de8f7b37d0950341286"  # Replace with your Drone RPC secret
+          value: "enter your rpc secret"  # Replace with your Drone RPC secret
